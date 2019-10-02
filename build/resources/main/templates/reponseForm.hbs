@@ -1,0 +1,26 @@
+{{#partial "content"}}
+<br><br><br><br>
+<div class="well">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Please fill in the following :</h1>
+            <form action="/fill" method="post">
+                <div class="form-group">
+                    <label for="mail">Enter your email</label>
+                    <input id="mail" name="mail" class="form-control" type="text" placeholder="name@gmail.com">
+                </div>
+                <div class="form-group">
+                    <p>Fill in your special comment or request for more information</p>
+                    <label for="depRole">Comment</label>
+                    <textarea rows="4" cols="50"></textarea>
+                </div>
+                Have you liked the house? Please contact us in the contactUs section.
+                <button type="submit" class="btn" style="color:black;">Submit!</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{/partial}}
+
+{{> layout.hbs}}
