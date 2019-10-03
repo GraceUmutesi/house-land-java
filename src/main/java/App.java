@@ -25,7 +25,7 @@ public class App {
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            return new ModelAndView(model, "index.hbs");
+            return new ModelAndView(model, "home.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/land/new", (request, response) -> {
@@ -43,6 +43,9 @@ public class App {
             return new ModelAndView(model, "landsuccess.hbs");
         }, new HandlebarsTemplateEngine());
 
+
+
+
         post("lands", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
 
@@ -53,14 +56,21 @@ public class App {
             String meansofpayment = request.queryParams("meansofpayment");
             String plot = request.queryParams("plot");
             String price = request.queryParams("price");
+            String purpose = request.queryParams("purpose");
 
-            Lands lands = new Lands(name, email, property, location, plot, meansofpayment, price);
+            Lands lands = new Lands(name, email, property, location, plot, meansofpayment, price, purpose);
             lands.save();
             List<Lands> parcels = Lands.allLands();
             model.put("parcels", parcels);
 
             return new ModelAndView(model, "lands.hbs");
         }, new HandlebarsTemplateEngine());
+
+//        post("/succ", (request, response) -> {
+//            Map<String, Object> model = new HashMap<String, Object>();
+//
+//            return new ModelAndView(model, "landsuccess.hbs");
+//        }, new HandlebarsTemplateEngine());
     }
 
 }

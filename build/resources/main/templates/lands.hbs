@@ -3,19 +3,48 @@
     <div class="container">
     <h2>LANDS AVAILABLE</h2>
     <hr>
-    {{#if lands}}
-        {{#each lands}}
-           <p>Name: {{ name }}</p>
-            <p>Email: {{ email }}</p>
-            <p>Property: {{ property }}</p>
-            <p>Location: {{ location }}</p>
-            <p>Means of payment: {{ meansOfPayment }}</p>
-            <p>Price: {{ price }}</p>
-        {{/each}}
 
-        {{else}}
-        <h3>No land is available</h3>
+
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Owner name</th>
+                <th scope="col">Owner address</th>
+                <th scope="col">Property</th>
+                <th scope="col">Purpose</th>
+                <th scope="col">Location</th>
+                <th scope="col">Plot No.</th>
+                <th scope="col">Price</th>
+                <th scope="col">Means of Payment</th>
+            </tr>
+            </thead>
+            <tbody>
+    {{#if parcels}}
+        {{#each parcels}}
+            <tr>
+
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{property}}</td>
+                <td>{{purpose}}</td>
+                <td>{{location}}</td>
+                <td>{{plot}}</td>
+                <td>{{price}}</td>
+                <td>{{meansofpayment}}</td>
+
+
+            </tr>
+
+        {{/each}}
+    {{else}}
     {{/if}}
+            </tbody>
+        </table>
+
+        <a class="btn btn-warning stretched-link" href="/land/new">ADD NEW PROPERTY</a>
+        <a class="btn btn-primary stretched-link" href="/">BACK</a>
+
     </div>
 
 {{/partial}}

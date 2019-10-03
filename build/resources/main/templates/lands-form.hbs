@@ -1,23 +1,42 @@
 {{#partial "content"}}
 
     <div class="container text-center">
-    <form>
         <label style="text-align:center; font-size: 3em; ">Add new land</label><br><br><br>
         <hr>
-        <label for="name">Owner's name</label>
-        <input type="text" name="name" required><br><br>
-        <label for="email">Email</label>
-        <input type="email" name="email" required><br><br>
-        <label for="location">Location</label>
-        <input type="text" name="location" required><br><br>
-        <label for="property">Property</label>
-        <input type="text" name="property" required><br><br>
-        <label for="meansOfPayment">Means of payment</label>
-        <input type="text" name="meansOfPayment" required><br><br>
-        <label for="price">Price</label>
-        <input type="text" name="price" required><br><br>
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
+        <div  style="background-color: rgba(1, 1, 0, 0.2); font-size: 2em; ">
+            <form action="/lands" method="post" >
+
+
+
+                 <label for="name">Owner's name</label>
+                <input type="text" name="name" required><br><br>
+                <label for="email">Email</label>
+                <input type="email" name="email" required><br><br>
+                <label for="property">Property</label>
+                <input type="text" name="property" required><br><br>
+                <label for="location">Location</label>
+                <input type="text" name="location" required><br><br>
+                <label for="purpose">Purpose</label>
+                <select name="purpose">
+                    <option> Agriculture</option>
+                    <option>Residential purpose</option>
+                </select><br><br>
+                <label for="plot">Plot</label>
+                <input type="text" name="plot"><br><br>
+
+                <label for="price">Price</label>
+                <input type="text" name="price" required><br><br>
+                <label for="meansOfPayment">Means of payment</label>
+                <select name="meansOfPayment">
+                    <option>Cash</option>
+                    <option>Momo</option>
+                    <option>Bank</option>
+                </select><br><br>
+
+                <button type="submit" class="btn btn-success">Submit</button>
+
+            </form>
+        </div>
     </div>
 
 {{/partial}}
