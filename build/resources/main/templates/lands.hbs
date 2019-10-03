@@ -1,0 +1,22 @@
+{{#partial "content"}}
+
+    <div class="container">
+    <h2>LANDS AVAILABLE</h2>
+    <hr>
+    {{#if lands}}
+        {{#each lands}}
+           <p>Name: {{ name }}</p>
+            <p>Email: {{ email }}</p>
+            <p>Property: {{ property }}</p>
+            <p>Location: {{ location }}</p>
+            <p>Means of payment: {{ meansOfPayment }}</p>
+            <p>Price: {{ price }}</p>
+        {{/each}}
+
+        {{else}}
+        <h3>No land is available</h3>
+    {{/if}}
+    </div>
+
+{{/partial}}
+{{>layout.hbs}}

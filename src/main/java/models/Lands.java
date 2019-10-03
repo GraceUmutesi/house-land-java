@@ -11,17 +11,21 @@ public class Lands {
     private String name;
     private String email;
     private String property;
+    private String purpose;
     private String location;
-    private String meansOfPayment;
-    private int price;
+    private String plot;
+    private String meansofpayment;
+    private String price;
     private int id;
 
-    public Lands(String name, String email, String property, String location, String meansOfPayment, int price) {
+    public Lands(String name, String email, String property, String purpose, String location, String plot, String meansofpayment, String price) {
         this.name = name;
         this.email = email;
         this.property = property;
+        this.purpose = purpose;
         this.location = location;
-        this.meansOfPayment = meansOfPayment;
+        this.plot = plot;
+        this.meansofpayment = meansofpayment;
         this.price = price;
     }
 
@@ -49,6 +53,14 @@ public class Lands {
         this.property = property;
     }
 
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
     public String getLocation() {
         return location;
     }
@@ -57,19 +69,27 @@ public class Lands {
         this.location = location;
     }
 
-    public String getMeansOfPayment() {
-        return meansOfPayment;
+    public String getPlot() {
+        return plot;
     }
 
-    public void setMeansOfPayment(String meansOfPayment) {
-        this.meansOfPayment = meansOfPayment;
+    public void setPlot(String plot) {
+        this.plot = plot;
     }
 
-    public int getPrice() {
+    public String getMeansofpayment() {
+        return meansofpayment;
+    }
+
+    public void setMeansofpayment(String meansofpayment) {
+        this.meansofpayment = meansofpayment;
+    }
+
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -83,13 +103,16 @@ public class Lands {
 
     public void save(){
         try (Connection con =  DB.sql2o.open()){
-            String sql = "INSERT INTO lands (name, email, property, location, meansOfPayment)";
+            String sql = "INSERT INTO lands (name, email, property, location, meansofpayment, plot, price, purpose) VALUES (:name, :email, :property, :location, :meansofpayment, :plot, :price, :purpose)";
             this.id =(int) con.createQuery(sql, true)
                 .addParameter("name", this.name)
                     .addParameter("email", this.email)
-                    .addParameter("property", property)
+                    .addParameter("property", this.property)
                     .addParameter("location", this.location)
-                    .addParameter("meansOfPayment", this.meansOfPayment )
+                    .addParameter("meansofpayment", this.meansofpayment)
+                    .addParameter("plot", this.plot)
+                    .addParameter("price", this.price)
+                    .addParameter("purpose", this.purpose)
                     .executeUpdate()
                     .getKey();
         }
@@ -99,9 +122,9 @@ public class Lands {
     public static List<Lands> allLands(){
         String sql = "SELECT * FROM lands;";
         try (Connection con = DB.sql2o.open()){
-
-            return con.createQuery(sql).executeAndFetch(Lands.class);
-
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Lands.class);
         }
     }
 }
