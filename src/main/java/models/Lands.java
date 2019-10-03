@@ -11,22 +11,24 @@ public class Lands {
     private String name;
     private String email;
     private String property;
-    private String purpose;
     private String location;
-    private String plot;
     private String meansofpayment;
+    private String plot;
     private String price;
+    private String purpose;
+    private String picture;
     private int id;
 
-    public Lands(String name, String email, String property, String purpose, String location, String plot, String meansofpayment, String price) {
+    public Lands(String name, String email, String property, String location, String meansofpayment, String plot, String price, String purpose, String picture) {
         this.name = name;
         this.email = email;
         this.property = property;
-        this.purpose = purpose;
         this.location = location;
-        this.plot = plot;
         this.meansofpayment = meansofpayment;
+        this.plot = plot;
         this.price = price;
+        this.purpose = purpose;
+        this.picture = picture;
     }
 
     public String getName() {
@@ -53,28 +55,12 @@ public class Lands {
         this.property = property;
     }
 
-    public String getPurpose() {
-        return purpose;
-    }
-
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
-    }
-
     public String getLocation() {
         return location;
     }
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    public String getPlot() {
-        return plot;
-    }
-
-    public void setPlot(String plot) {
-        this.plot = plot;
     }
 
     public String getMeansofpayment() {
@@ -85,12 +71,36 @@ public class Lands {
         this.meansofpayment = meansofpayment;
     }
 
+    public String getPlot() {
+        return plot;
+    }
+
+    public void setPlot(String plot) {
+        this.plot = plot;
+    }
+
     public String getPrice() {
         return price;
     }
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public int getId() {
@@ -103,7 +113,7 @@ public class Lands {
 
     public void save(){
         try (Connection con =  DB.sql2o.open()){
-            String sql = "INSERT INTO lands (name, email, property, location, meansofpayment, plot, price, purpose) VALUES (:name, :email, :property, :location, :meansofpayment, :plot, :price, :purpose)";
+            String sql = "INSERT INTO lands (name, email, property, location, meansofpayment, plot, price, purpose, picture) VALUES (:name, :email, :property, :location, :meansofpayment, :plot, :price, :purpose, :picture)";
             this.id =(int) con.createQuery(sql, true)
                 .addParameter("name", this.name)
                     .addParameter("email", this.email)
@@ -113,6 +123,7 @@ public class Lands {
                     .addParameter("plot", this.plot)
                     .addParameter("price", this.price)
                     .addParameter("purpose", this.purpose)
+                    .addParameter("picture", this.picture)
                     .executeUpdate()
                     .getKey();
         }
@@ -121,6 +132,14 @@ public class Lands {
 
     public static List<Lands> allLands(){
         String sql = "SELECT * FROM lands;";
+        try (Connection con = DB.sql2o.open()){
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Lands.class);
+        }
+    }
+    public static List<Lands> search(){
+        String sql = "SELECT * FROM lands WHERE location = search;";
         try (Connection con = DB.sql2o.open()){
             return con.createQuery(sql)
                     .throwOnMappingFailure(false)

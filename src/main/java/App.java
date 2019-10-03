@@ -57,8 +57,9 @@ public class App {
             String plot = request.queryParams("plot");
             String price = request.queryParams("price");
             String purpose = request.queryParams("purpose");
+            String picture = request.queryParams("picture");
 
-            Lands lands = new Lands(name, email, property, location, plot, meansofpayment, price, purpose);
+            Lands lands = new Lands(name, email, property, location, plot, meansofpayment, price, purpose, picture);
             lands.save();
             List<Lands> parcels = Lands.allLands();
             model.put("parcels", parcels);
