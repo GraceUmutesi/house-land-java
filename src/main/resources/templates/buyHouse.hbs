@@ -1,10 +1,12 @@
 {{#partial "content"}}
-<body style="background-color:rgb(217, 231, 232)">
+<link href="https://fonts.googleapis.com/css?family=Merienda|Neuton:400i&display=swap" rel="stylesheet">
+<body >
 
-<div class="titus"><br><br><h1 style="text-align:center;">HOUSES TO BUY</h1><br><br></div><br><br>
-
+<div  class="titus"><br><br><br><br><h1 style="text-align:center;">HOUSES  TO  BUY</h1></div><br><br>
+<br><br><br>
 <div class="row">
-    <div class="col-sm-4">
+
+    <div id="first" class="col-sm-4">
         <div class="contain">
             <a href="fill"><img class="class" src="/images/house.jpg"></a>
             <div class="inline">
@@ -28,7 +30,7 @@
             </div>
        </div><br><br>
     </div>
-    <div class="col-sm-4">
+    <div id="two" class="col-sm-4">
         <div class="contain">
             <a href="fill"><img class="class" src="/images/house3.jpg"></a>
             <div class="inline">
@@ -52,7 +54,7 @@
             </div>
         </div><br><br>
     </div>
-    <div class="col-sm-4">
+    <div id="three" class="col-sm-4">
         <div class="contain">
             <a href="fill"><img class="class" src="/images/house5.jpg"></a>
             <div class="inline">
@@ -151,6 +153,25 @@
 </div>
 
 </body>
+<style>
+body{
+background-image:url("https://cdn.wallpapersafari.com/59/10/K1gCAr.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+}
+font-family: 'Merienda', cursive;
+    /*   .words{
+                 text-align:center;
+                 margin-bottom:90px;
+                 margin-left:2%;
+                 } */
+/* #first {
+   margin-left: 20%;
+}
+#two{
+margin-left: 20%;
+} */
+</style>
 {{/partial}}
 
 {{> layout.hbs}}
