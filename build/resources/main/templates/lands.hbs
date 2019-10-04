@@ -46,22 +46,21 @@
     #content{
         margin-left: 6%; margin-right: 8%;
     }
-    	 img {
+    	 .img {
   			transform: scale(1);
   			transition: .3s ease-in-out;
   			height: 300;
   			width: 200;
   		}
-		img:hover{
+		.img:hover{
 			transform: scale(1.4);
 		}
 
     </style>
 
 
-    <div id="content" style="background-color: white; margin-top: 2%;background-image: url('https://services.nconemap.gov/od-background-scene.gif');
-            background-repeat:no-repeat;
-            background-size: cover;">
+    <div id="content" style="background-color: white; margin-top: 2%;">
+
 
         <div class="d-flex justify-content-center h-100">
             <div class="searchbar">
@@ -102,7 +101,7 @@
                     <td>{{plot}}</td>
                     <td>{{price}}</td>
                     <td>{{purpose}}</td>
-                    <td><a href="#"><img src="{{picture}}" alt="land photo"></a></td>
+                    <td><a href="#"><img src="{{picture}}" alt="land photo" class="img"></a></td>
                 </tr>
 
             {{/each}}
