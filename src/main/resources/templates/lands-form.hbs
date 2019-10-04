@@ -1,39 +1,41 @@
 {{#partial "content"}}
 
+
+
     <div class="container text-center">
         <label style="text-align:center; font-size: 3em; ">Add new land</label><br><br><br>
         <hr>
-        <div  style="background-color: rgba(1, 1, 0, 0.2); font-size: 2em; ">
-            <form action="/lands" method="post" >
+        <div class="jumbotron" style="background-color: rgba(1, 1, 0, 0.2); font-size: 2em; width:600px; margin-left:25%; background-image:https://image.shutterstock.com/image-illustration/top-view-cracked-soil-ground-260nw-1161698023.jpg">
+            <form action="/lands" method="post" class="form-group" style="width:400px; margin-left:10%;">
 
 
 
-                 <label for="name">Owner's name</label>
-                <input type="text" name="name" required><br><br>
-                <label for="email">Email</label>
-                <input type="email" name="email" required><br><br>
-                <label for="property">Property</label>
-                <input type="text" name="property" required><br><br>
-                <label for="location">Location</label>
-                <input type="text" name="location" required><br><br>
-                <label for="purpose">Purpose</label>
-                <select name="purpose">
+                 <label for="name">Owner's name</label><br>
+                <input type="text" name="name" class="form-control" required><br>
+                <label for="email">Email</label><br>
+                <input type="email" name="email" class="form-control" required><br>
+                <label for="property">Property</label><br>
+                <input type="text" name="property" class="form-control" required><br>
+                <label for="location">Location</label><br>
+                <input type="text" name="location" class="form-control" required><br>
+                <label for="purpose">Purpose</label><br>
+                <select name="purpose" class="form-control">
                     <option> Agriculture</option>
                     <option>Residential purpose</option>
                 </select><br><br>
-                <label for="plot">Plot</label>
-                <input type="text" name="plot"><br><br>
+                <label for="plot">Plot</label><br>
+                <input type="text" name="plot" class="form-control"><br>
 
-                <label for="price">Price</label>
-                <input type="text" name="price" required><br><br>
-                <label for="meansofpayment">Means of payment</label>
-                <select name="meansofpayment">
+                <label for="price">Price</label><br>
+                <input type="text" name="price" class="form-control" required><br>
+                <label for="meansofpayment">Means of payment</label><br>
+                <select name="meansofpayment" class="form-control">
                     <option>Cash</option>
                     <option>Momo</option>
                     <option>Bank</option>
                 </select><br><br>
-                <label for="picture">Link to the picture</label>
-                <input type="url" name="picture"><br><br>
+                <label for="picture">Link to the picture</label><br>
+                <input type="url" name="picture" class="form-control"><br>
 
                 <button type="submit" class="btn btn-success">Submit</button>
 
